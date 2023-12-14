@@ -7,20 +7,20 @@
 
 .form-container form {
   width: 100%;
-  max-width: 400px; /* oder eine andere gewünschte Breite */
+  max-width: 400px;
   padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: white;
   border-radius: 8px;
 }
 
 .input-field {
   width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+
 }
 
 .input-field:focus {
@@ -30,7 +30,7 @@
 
 button {
   width: 100%;
-  background-color: #4CAF50; /* Grüne Farbe */
+  background-color: green;
   color: white;
   padding: 14px 20px;
   margin-top: 10px;
