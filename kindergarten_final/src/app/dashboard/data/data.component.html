@@ -1,37 +1,32 @@
 <div class="table-container">
     <mat-table [dataSource]="storeService.children" class="mat-elevation-z8">
 
-        <!-- Name Column -->
+
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.name}} </mat-cell>
         </ng-container>
 
-        <!-- Kindergarten Column -->
         <ng-container matColumnDef="kindergarden">
             <mat-header-cell *matHeaderCellDef> Kindergarden </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.kindergarden.name}} </mat-cell>
         </ng-container>
 
-        <!-- Adresse Column -->
         <ng-container matColumnDef="address">
             <mat-header-cell *matHeaderCellDef> Adresse </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.kindergarden.address}} </mat-cell>
         </ng-container>
 
-        <!-- Alter Column -->
         <ng-container matColumnDef="age">
             <mat-header-cell *matHeaderCellDef> Alter </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{getAge(child.birthDate)}} </mat-cell>
         </ng-container>
 
-        <!-- Geburtsdatum Column -->
         <ng-container matColumnDef="birthdate">
             <mat-header-cell *matHeaderCellDef> Geburtsdatum </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.birthDate | date:'longDate'}} </mat-cell>
         </ng-container>
 
-        <!-- Aktionen Column -->
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> Aktionen </mat-header-cell>
             <mat-cell *matCellDef="let child">
