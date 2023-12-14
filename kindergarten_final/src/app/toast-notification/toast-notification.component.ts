@@ -10,7 +10,7 @@ export class ToastNotificationComponent {
 
   public showToast() {
     this.show = true;
-    setTimeout(() => (this.show = false), 3000); // Toast für 3 Sekunden anzeigen
+    setTimeout(() => (this.show = false), 3000);
   }
 
   public close() {
