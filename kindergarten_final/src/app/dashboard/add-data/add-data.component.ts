@@ -25,7 +25,7 @@ export class AddDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.addChildForm = this.formbuilder.group({
-      name: ['', [Validators.required, Validators.maxLength(50)]],
+      name: ['', [Validators.required, Validators.maxLength(25)]],
       kindergardenId: ['', Validators.required],
       birthDate: [
         '',
@@ -44,7 +44,7 @@ export class AddDataComponent implements OnInit {
       this.backendService.addChildData(
         this.addChildForm.value,
         this.currentPage,
-        () => this.toastNotification.showToast() // Callback-Funktion
+        () => this.toastNotification.showToast()
       );
     }
   }
