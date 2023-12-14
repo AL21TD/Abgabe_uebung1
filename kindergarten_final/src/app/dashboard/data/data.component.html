@@ -1,0 +1,49 @@
+<div class="table-container">
+    <mat-table [dataSource]="storeService.children" class="mat-elevation-z8">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Kindergarten Column -->
+        <ng-container matColumnDef="kindergarden">
+            <mat-header-cell *matHeaderCellDef> Kindergarden </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.kindergarden.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Adresse Column -->
+        <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef> Adresse </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.kindergarden.address}} </mat-cell>
+        </ng-container>
+
+        <!-- Alter Column -->
+        <ng-container matColumnDef="age">
+            <mat-header-cell *matHeaderCellDef> Alter </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{getAge(child.birthDate)}} </mat-cell>
+        </ng-container>
+
+        <!-- Geburtsdatum Column -->
+        <ng-container matColumnDef="birthdate">
+            <mat-header-cell *matHeaderCellDef> Geburtsdatum </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.birthDate | date:'longDate'}} </mat-cell>
+        </ng-container>
+
+        <!-- Aktionen Column -->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Aktionen </mat-header-cell>
+            <mat-cell *matCellDef="let child">
+                <button mat-button (click)="cancelRegistration(child.id)">Kind abmelden</button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="handlePageEvent($event)" aria-label="Select page">
+    </mat-paginator>
+</div>

@@ -1,0 +1,51 @@
+<div class="form-container">
+    <form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
+        <h2>Ihr Kind anmelden!</h2>
+
+        <!-- Name Input -->
+        <div>
+            <input class="input-field" placeholder="Name" type="text" formControlName="name">
+            <div *ngIf="addChildForm.get('name').errors?.required && addChildForm.get('name').touched" class="error">
+                Bitte geben Sie den Namen ein.
+            </div>
+            <div *ngIf="addChildForm.get('name').errors?.maxLength && addChildForm.get('name').touched" class="error">
+                Der Name darf maximal 50 Zeichen lang sein.
+            </div>
+        </div><br />
+
+        <!-- Geburtsdatum Input -->
+        <div>
+            <input class="input-field" placeholder="Geburtsdatum" type="text" formControlName="birthDate">
+
+            <div *ngIf="addChildForm.get('birthDate').errors?.required && addChildForm.get('birthDate').touched"
+                class="error">
+                Bitte geben Sie das Geburtsdatum ein.
+            </div>
+            <div *ngIf="addChildForm.get('birthDate').errors?.minlength && addChildForm.get('birthDate').touched"
+                class="error">
+                Das Datum muss im Format TT.MM.JJJJ sein.
+            </div>
+        </div><br />
+
+        <!-- Kindergarten Dropdown -->
+        <div>
+            <select class="input-field" formControlName="kindergardenId">
+                <option value="" disabled>Bitte auswählen</option>
+                <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
+                    {{kindergarden.name}}, {{kindergarden.address}}
+                </option>
+            </select>
+            <div *ngIf="addChildForm.controls.kindergardenId.invalid && (addChildForm.controls.kindergardenId.dirty || addChildForm.controls.kindergardenId.touched)"
+                class="error">
+                Bitte wählen Sie einen Kindergarten aus.
+            </div>
+        </div><br />
+
+        <!-- Submit Button -->
+        <button type="submit">Erfassen</button>
+    </form>
+
+    <!-- Andere Inhalte von AddDataComponent -->
+    <app-toast-notification #toast></app-toast-notification>
+
+</div>
