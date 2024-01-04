@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Kindergarden } from '../shared/interfaces/Kindergarden';
+import { Kindergarden, Typ } from '../shared/interfaces/Kindergarden';
 import { ActivatedRoute } from '@angular/router';
 import { BackendService } from '../shared/backend.service';
 
@@ -26,6 +26,16 @@ export class KindergartenDetailsComponent implements OnInit {
     } else {
       // Behandeln Sie den Fall, dass keine ID vorhanden ist
       console.error('Keine gültige ID in der URL gefunden');
+    }
+  }
+  getTypName(typ: Typ): string {
+    switch (typ) {
+      case Typ.privat:
+        return 'Privat';
+      case Typ.oeffentlich:
+        return 'Öffentlich';
+      default:
+        return 'Unbekannt';
     }
   }
 }

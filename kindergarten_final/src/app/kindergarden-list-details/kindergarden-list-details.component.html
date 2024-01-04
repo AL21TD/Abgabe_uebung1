@@ -6,8 +6,8 @@
         <mat-card-content>
             <p><strong>Adresse:</strong> {{ kg.address }}</p>
             <p><strong>Betreiber:</strong> {{ kg.betreiber }}</p>
-            <!-- Link zur Detailansicht jedes Kindergartens -->
-            <a [routerLink]="['/kindergarden-details', kg.id]">Details ansehen</a>
+            <p><strong>Typ:</strong> {{ getTypName(kg.typ) }}</p>
+            <a [routerLink]="['/kindergarden', kg.id]">Details ansehen</a>
         </mat-card-content>
     </mat-card>
 </div>

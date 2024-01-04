@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../shared/backend.service';
-import { Kindergarden } from '../shared/interfaces/Kindergarden';
+import { Kindergarden, Typ } from '../shared/interfaces/Kindergarden';
 
 @Component({
   selector: 'app-kindergarden-list-details',
@@ -17,5 +17,15 @@ export class KindergartenListDetailsComponent implements OnInit {
       (data: Kindergarden[] | undefined) => (this.kindergardens = data),
       (error: any) => console.error(error)
     );
+  }
+  getTypName(typ: Typ): string {
+    switch (typ) {
+      case Typ.privat:
+        return 'Privat';
+      case Typ.oeffentlich:
+        return 'Öffentlich';
+      default:
+        return 'Unbekannt';
+    }
   }
 }
