@@ -10,6 +10,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent implements OnInit {
+  loading: boolean = false;
   length = 50;
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 25];

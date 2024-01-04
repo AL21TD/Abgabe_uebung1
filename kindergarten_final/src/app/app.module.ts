@@ -21,6 +21,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { KindergartenDetailsComponent } from './kindergarden-details/kindergarden-details.component';
 import { MatCardModule } from '@angular/material/card';
 import { KindergartenListDetailsComponent } from './kindergarden-list-details/kindergarden-list-details.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +37,10 @@ import { KindergartenListDetailsComponent } from './kindergarden-list-details/ki
     DataComponent,
     KindergartenDetailsComponent,
     KindergartenListDetailsComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

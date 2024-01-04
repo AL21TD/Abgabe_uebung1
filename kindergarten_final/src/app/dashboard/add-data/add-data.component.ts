@@ -10,6 +10,7 @@ import { ToastNotificationComponent } from 'src/app/toast-notification/toast-not
   styleUrls: ['./add-data.component.scss'],
 })
 export class AddDataComponent implements OnInit {
+  loading: boolean = false;
   @ViewChild(ToastNotificationComponent)
   toastNotification: ToastNotificationComponent =
     new ToastNotificationComponent();
@@ -40,11 +41,14 @@ export class AddDataComponent implements OnInit {
 
   onSubmit() {
     if (this.addChildForm.valid) {
-      console.log(this.currentPage);
+      this.loading = true; // Spinner aktivieren
       this.backendService.addChildData(
         this.addChildForm.value,
         this.currentPage,
-        () => this.toastNotification.showToast()
+        () => {
+          this.toastNotification.showToast();
+          this.loading = false; // Spinner deaktivieren, wenn der Vorgang abgeschlossen ist
+        }
       );
     }
   }
