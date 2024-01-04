@@ -47,4 +47,23 @@ export class BackendService {
         this.getChildren(page);
       });
   }
+
+  public getChildrenByKindergarden(kindergardenId: number, page: number) {
+    this.http
+      .get<ChildResponse[]>(
+        `http://localhost:5000/childs?_expand=kindergarden&kindergardenId=${kindergardenId}&_page=${page}&_limit=${CHILDREN_PER_PAGE}`,
+        { observe: 'response' }
+      )
+      .subscribe(
+        (response) => {
+          this.storeService.children = response.body!;
+          this.storeService.childrenTotalCount = Number(
+            response.headers.get('X-Total-Count')
+          );
+        },
+        (error) => {
+          console.error('API error: ', error);
+        }
+      );
+  }
 }

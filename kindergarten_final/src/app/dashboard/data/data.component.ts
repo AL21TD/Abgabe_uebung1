@@ -10,8 +10,8 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent implements OnInit {
-  length = 50; 
-  pageSize = 5; 
+  length = 50;
+  pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 25];
 
   handlePageEvent(event: PageEvent) {
@@ -37,6 +37,7 @@ export class DataComponent implements OnInit {
 
   ngOnInit(): void {
     this.backendService.getChildren(this.currentPage);
+    this.backendService.getKindergardens();
   }
 
   getAge(birthDate: string) {
@@ -62,5 +63,12 @@ export class DataComponent implements OnInit {
 
   public cancelRegistration(childId: string) {
     this.backendService.deleteChildData(childId, this.currentPage);
+  }
+
+  filterByKindergarden(kindergardenId: number) {
+    this.backendService.getChildrenByKindergarden(
+      kindergardenId,
+      this.currentPage
+    );
   }
 }

@@ -17,6 +17,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastNotificationComponent } from './toast-notification/toast-notification.component';
+import { MatSelectModule } from '@angular/material/select';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { ToastNotificationComponent } from './toast-notification/toast-notificat
     ButtonComponent,
     PaginationPipe,
     ToastNotificationComponent,
+    DataComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,7 @@ import { ToastNotificationComponent } from './toast-notification/toast-notificat
     MatButtonToggleModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
