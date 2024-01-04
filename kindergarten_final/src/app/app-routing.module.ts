@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { KindergartenDetailsComponent } from './kindergarden-details/kindergarden-details.component';
 import { KindergartenListDetailsComponent } from './kindergarden-list-details/kindergarden-list-details.component';
 import { AddDataComponent } from './dashboard/add-data/add-data.component';
+import { DataComponent } from './dashboard/data/data.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'about', component: AboutPageComponent },
   { path: 'kindergarden/:id', component: KindergartenDetailsComponent },
   { path: 'kindergarden-details', component: KindergartenListDetailsComponent },
-  { path: 'addnewuser', component: AddDataComponent },
+  { path: 'add-new-user', component: AddDataComponent },
+  { path: 'existing-user', component: DataComponent },
 ];
 
 @NgModule({

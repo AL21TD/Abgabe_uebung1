@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { KindergartenListDetailsComponent } from './kindergarden-list-details/kindergarden-list-details.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     KindergartenDetailsComponent,
     KindergartenListDetailsComponent,
     LoadingSpinnerComponent,
+    FooterComponent,
   ],
   imports: [
     MatProgressSpinnerModule,

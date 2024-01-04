@@ -1,36 +1,6 @@
 {
   "childs": [
     {
-      "name": "Heidi aus den Bergen 9",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-05",
-      "id": "hOHEFCv"
-    },
-    {
-      "name": "Traude Widmann 10",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-05",
-      "id": "cu0_2Ad"
-    },
-    {
-      "name": "Heiner Kühlschrank 11",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-26",
-      "id": "ip57WMS"
-    },
-    {
-      "name": "Nicole Witz 12",
-      "kindergardenId": 3,
-      "birthDate": "2023-10-13",
-      "id": "JmbNaBH"
-    },
-    {
-      "name": "Bastian Witsch 13",
-      "kindergardenId": 3,
-      "birthDate": "2023-10-13",
-      "id": "hlQAqAD"
-    },
-    {
       "name": "aaaaa",
       "kindergardenId": 3,
       "birthDate": "22.18.1990",
@@ -155,6 +125,12 @@
       "kindergardenId": 2,
       "birthDate": "21.02.1996",
       "id": "c5F2zAr"
+    },
+    {
+      "name": "Andreas",
+      "kindergardenId": 2,
+      "birthDate": "21.02.1996",
+      "id": "VAjXgGG"
     }
   ],
   "kindergardens": [

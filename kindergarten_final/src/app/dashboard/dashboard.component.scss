@@ -1,0 +1,28 @@
+.app-introduction {
+    text-align: center; /* Zentriert den Text */
+    font-family: 'Arial', sans-serif; /* Ändert die Schriftart */
+    padding: 20px; /* Fügt Polsterung hinzu */
+    background-color: #f8f9fa; /* Hintergrundfarbe */
+    border-radius: 10px; /* Abgerundete Ecken */
+    margin: auto; /* Zentriert den Container */
+    max-width: 1000px; /* Maximale Breite des Containers */
+}
+
+.app-introduction h1 {
+    color: #007bff; /* Farbe des Titels */
+    margin-bottom: 20px; /* Abstand unter dem Titel */
+}
+
+.app-introduction p {
+    font-size: 18px; /* Größere Schriftgröße für den Paragraphen */
+    line-height: 1.6; /* Verbessert den Zeilenabstand */
+    color: #333; /* Dunklere Schriftfarbe für bessere Lesbarkeit */
+    margin-bottom: 30px; /* Abstand unter dem Paragraphen */
+}
+
+.app-introduction img {
+    border-radius: 5px; /* Abgerundete Ecken für das Bild */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Leichter Schatten um das Bild */
+    max-width: 100%; /* Sorgt dafür, dass das Bild responsiv ist */
+    height: auto; /* Erhält das Seitenverhältnis des Bildes */
+}
