@@ -1,15 +1,19 @@
-<!-- kindergarden-details.component.html -->
-<div *ngIf="kindergarten">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>{{ kindergarten.name }}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image [src]="" alt="{{ kindergarten.name }}">
-        <mat-card-content>
-            <p><strong>Adresse:</strong> {{ kindergarten.address }}</p>
-            <p><strong>Betreiber:</strong> {{ kindergarten.betreiber }}</p>
-            <p><strong>Typ:</strong> {{ getTypName(kindergarten.typ) }}</p>
-            <!-- Hier können Sie weitere Informationen über den Kindergarten hinzufügen -->
-        </mat-card-content>
-    </mat-card>
+<div class="image-container">
+    <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/happy-female-teacher-standing-in-front-of-whiteboa-2023-11-27-05-35-50-utc.jpg"
+        alt="Bild 1">
+    <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/nursery-school-children-with-man-teacher-standing-2023-11-27-04-58-03-utc.jpg"
+        alt="Bild 2">
+    <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/smiling-teacher-and-multicultural-preschoolers-sit-2023-11-27-05-19-51-utc.jpg"
+        alt="Bild 3">
+</div>
+
+<div *ngIf="kindergarten" class="card mt-3" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ kindergarten.name }}</h5>
+        <p class="card-text">
+            <strong>Adresse:</strong> {{ kindergarten.address }}<br>
+            <strong>Betreiber:</strong> {{ kindergarten.betreiber }}<br>
+            <strong>Typ:</strong> {{ getTypName(kindergarten.typ) }}
+        </p>
+    </div>
 </div>

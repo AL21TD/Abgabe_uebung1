@@ -1,0 +1,21 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Abstand zwischen den Bildern */
+}
+
+.image-container img {
+    max-width: 300px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    display: block; /* Verhindert zusätzlichen Platz unter dem Bild */
+    margin-top: 20px;
+}
+/* CSS für die Karte selbst, um sie innerhalb des Flex-Containers zu zentrieren */
+.card {
+    margin: auto; /* Fügt automatische Ränder hinzu, um die Karte zu zentrieren */
+    max-width: 300px; /* Maximale Breite der Karte */
+}

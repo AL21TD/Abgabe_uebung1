@@ -1,0 +1,14 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* Stil für den Container, der die Karten enthält */
+.d-flex.flex-wrap {
+    margin-top: 20px;
+    justify-content: center; /* Zentriert die Karten horizontal */
+    align-items: flex-start; /* Ausrichtung am Anfang des Containers, für den Fall, dass die Karten unterschiedliche Höhen haben */
+    gap: 16px; /* Fügt einen Abstand zwischen den Karten hinzu */
+}
+
+/* Zusätzliche Anpassungen für die Karte, falls nötig */
+.card {
+    margin-bottom: 16px; /* Fügt einen unteren Abstand für jede Karte hinzu */
+    /* Weitere Stilisierungen, falls gewünscht */
+}
