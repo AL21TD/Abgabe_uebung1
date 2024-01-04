@@ -47,7 +47,7 @@
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> Aktionen </mat-header-cell>
             <mat-cell *matCellDef="let child">
-                <button mat-button (click)="cancelRegistration(child.id)">Kind abmelden</button>
+                <button mat-button-danger (click)="cancelRegistration(child.id)">Kind abmelden</button>
             </mat-cell>
         </ng-container>
 
