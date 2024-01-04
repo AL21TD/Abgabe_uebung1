@@ -1,0 +1,14 @@
+<!-- kindergarden-details.component.html -->
+<div *ngIf="kindergarten">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ kindergarten.name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="" alt="{{ kindergarten.name }}">
+        <mat-card-content>
+            <p><strong>Adresse:</strong> {{ kindergarten.address }}</p>
+            <p><strong>Betreiber:</strong> {{ kindergarten.betreiber }}</p>
+            <!-- Hier können Sie weitere Informationen über den Kindergarten hinzufügen -->
+        </mat-card-content>
+    </mat-card>
+</div>

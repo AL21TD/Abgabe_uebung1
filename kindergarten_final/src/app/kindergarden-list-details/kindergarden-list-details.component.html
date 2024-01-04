@@ -1,0 +1,13 @@
+<div *ngIf="kindergardens && kindergardens.length > 0">
+    <mat-card *ngFor="let kg of kindergardens">
+        <mat-card-header>
+            <mat-card-title>{{ kg.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p><strong>Adresse:</strong> {{ kg.address }}</p>
+            <p><strong>Betreiber:</strong> {{ kg.betreiber }}</p>
+            <!-- Link zur Detailansicht jedes Kindergartens -->
+            <a [routerLink]="['/kindergarden-details', kg.id]">Details ansehen</a>
+        </mat-card-content>
+    </mat-card>
+</div>

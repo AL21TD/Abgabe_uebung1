@@ -18,6 +18,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastNotificationComponent } from './toast-notification/toast-notification.component';
 import { MatSelectModule } from '@angular/material/select';
+import { KindergartenDetailsComponent } from './kindergarden-details/kindergarden-details.component';
+import { MatCardModule } from '@angular/material/card';
+import { KindergartenListDetailsComponent } from './kindergarden-list-details/kindergarden-list-details.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { MatSelectModule } from '@angular/material/select';
     PaginationPipe,
     ToastNotificationComponent,
     DataComponent,
+    KindergartenDetailsComponent,
+    KindergartenListDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableModule,
     MatPaginatorModule,
     MatSelectModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

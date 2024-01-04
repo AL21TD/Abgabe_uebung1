@@ -4,6 +4,7 @@ import { Kindergarden } from './interfaces/Kindergarden';
 import { StoreService } from './store.service';
 import { Child, ChildResponse } from './interfaces/Child';
 import { CHILDREN_PER_PAGE } from './constants';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,14 @@ export class BackendService {
       .subscribe((data) => {
         this.storeService.kindergardens = data;
       });
+  }
+  public getKindergartenById(id: string): Observable<Kindergarden> {
+    return this.http.get<Kindergarden>(
+      `http://localhost:5000/kindergardens/${id}`
+    );
+  }
+  public getAllKindergardens(): Observable<Kindergarden[]> {
+    return this.http.get<Kindergarden[]>('http://localhost:5000/kindergardens');
   }
 
   public getChildren(page: number) {
