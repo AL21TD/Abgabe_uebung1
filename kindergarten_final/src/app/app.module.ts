@@ -18,7 +18,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastNotificationComponent } from './toast-notification/toast-notification.component';
 import { MatSelectModule } from '@angular/material/select';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     PaginationPipe,
     ToastNotificationComponent,
     DataComponent,
-    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

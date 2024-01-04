@@ -73,24 +73,6 @@
       "id": "hlQAqAD"
     },
     {
-      "name": "aaaaaaa",
-      "kindergardenId": 3,
-      "birthDate": "1996-02-21",
-      "id": "vpikaAm"
-    },
-    {
-      "name": "aaaaaaa",
-      "kindergardenId": 3,
-      "birthDate": "1996-02-21",
-      "id": "6r-gJW4"
-    },
-    {
-      "name": "aaaaaaa",
-      "kindergardenId": 3,
-      "birthDate": "1996-02-21",
-      "id": "zQkIH9L"
-    },
-    {
       "name": "aaaaa",
       "kindergardenId": 3,
       "birthDate": "22.18.1990",
@@ -167,6 +149,12 @@
       "kindergardenId": 4,
       "birthDate": "21.02.1996",
       "id": "CqGhtJY"
+    },
+    {
+      "name": "aaaaa aaaa",
+      "kindergardenId": 3,
+      "birthDate": "21.02.1996",
+      "id": "wH2Xgk9"
     }
   ],
   "kindergardens": [
