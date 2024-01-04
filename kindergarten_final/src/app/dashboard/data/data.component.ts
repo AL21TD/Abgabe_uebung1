@@ -63,7 +63,18 @@ export class DataComponent implements OnInit {
   }
 
   public cancelRegistration(childId: string) {
-    this.backendService.deleteChildData(childId, this.currentPage);
+    this.loading = true; // Lade-Indikator anzeigen
+
+    this.backendService.deleteChildData(childId, this.currentPage).subscribe({
+      next: (_) => {
+        // ... Aktionen nach erfolgreichem Löschen ...
+        this.loading = false; // Lade-Indikator verbergen
+      },
+      error: (error) => {
+        // ... Fehlerbehandlung ...
+        this.loading = false; // Lade-Indikator auch im Fehlerfall verbergen
+      },
+    });
   }
 
   filterByKindergarden(kindergardenId: number) {

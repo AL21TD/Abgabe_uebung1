@@ -1,6 +1,10 @@
 /* loading-spinner.component.scss */
 :host {
     display: block;
-    text-align: center;
+    position: fixed; /* Fixiert den Spinner auf dem Bildschirm */
+    top: 50%; /* Zentriert den Spinner vertikal */
+    left: 50%; /* Zentriert den Spinner horizontal */
+    transform: translate(-50%, -50%); /* Verschiebt den Spinner relativ zu seiner Mitte */
+    z-index: 1000; /* Stellt sicher, dass der Spinner über anderen Elementen angezeigt wird */
   }
   

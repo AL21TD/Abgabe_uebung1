@@ -1,30 +1,6 @@
 {
   "childs": [
     {
-      "id": "_iL77oo",
-      "name": "Viktor Sachs 3",
-      "birthDate": "2022-06-04",
-      "kindergardenId": 4
-    },
-    {
-      "id": "_iL790m",
-      "name": "Michael Mittner 6",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "id": "_iL790m",
-      "name": "Nikolaus Polarius 7",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "name": "Paulus Fensterl 8",
-      "kindergardenId": 2,
-      "birthDate": "2023-09-28",
-      "id": "9py_fwi"
-    },
-    {
       "name": "Heidi aus den Bergen 9",
       "kindergardenId": 2,
       "birthDate": "2023-10-05",
@@ -173,6 +149,12 @@
       "kindergardenId": 4,
       "birthDate": "21.02.1996",
       "id": "-u0n8Q9"
+    },
+    {
+      "name": "Andreas ",
+      "kindergardenId": 2,
+      "birthDate": "21.02.1996",
+      "id": "c5F2zAr"
     }
   ],
   "kindergardens": [

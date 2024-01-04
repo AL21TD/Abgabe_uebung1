@@ -4,7 +4,7 @@ import { Kindergarden } from './interfaces/Kindergarden';
 import { StoreService } from './store.service';
 import { Child, ChildResponse } from './interfaces/Child';
 import { CHILDREN_PER_PAGE } from './constants';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -49,12 +49,17 @@ export class BackendService {
     });
   }
 
-  public deleteChildData(childId: string, page: number) {
-    this.http
-      .delete(`http://localhost:5000/childs/${childId}`)
-      .subscribe((_) => {
-        this.getChildren(page);
-      });
+  public deleteChildData(childId: string, page: number): Observable<any> {
+    return this.http.delete(`http://localhost:5000/childs/${childId}`).pipe(
+      tap({
+        next: (_) => {
+          this.getChildren(page);
+        },
+        error: (error) => {
+          console.error('Fehler beim Löschen des Kindes', error);
+        },
+      })
+    );
   }
 
   public getChildrenByKindergarden(kindergardenId: number, page: number) {
