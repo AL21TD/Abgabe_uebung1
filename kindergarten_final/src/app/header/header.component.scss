@@ -1,4 +1,39 @@
 .flex {
     display: flex;
     gap: 50px;
-}
+    align-items: center;
+  }
+  
+  .toolbar-links a {
+    display: inline-block;
+  }
+  
+  /* Hamburger Icon und Navigationslinks nur auf kleineren Bildschirmen anzeigen */
+  @media (max-width: 1200px) {
+    .toolbar-links {
+      display: none;
+    }
+  
+    mat-toolbar button {
+      display: inline-block;
+    }
+  }
+  
+  /* Verbergen des Hamburger Icons auf größeren Bildschirmen */
+  @media (min-width: 1201px) {
+    mat-toolbar button {
+      display: none;
+    }
+  }
+  
+  mat-sidenav a {
+    display: block; /* Stellt sicher, dass die Links untereinander angezeigt werden */
+    padding: 10px; /* Fügt Polsterung hinzu */
+    color: inherit; /* Verwendet die standardmäßige Textfarbe */
+    text-decoration: none; /* Entfernt die Unterstreichung */
+  }
+  
+  mat-sidenav a:hover {
+    background-color: #e0e0e0; /* Hintergrundfarbe beim Hover */
+  }
+  

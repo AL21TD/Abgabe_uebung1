@@ -9,11 +9,41 @@
 
 <div *ngIf="kindergarten" class="card mt-3" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">{{ kindergarten.name }}</h5>
+        <h3 class="card-title">Unser Kindergarten</h3>
         <p class="card-text">
+            <strong>Name:</strong> {{ kindergarten.name }}<br>
             <strong>Adresse:</strong> {{ kindergarten.address }}<br>
             <strong>Betreiber:</strong> {{ kindergarten.betreiber }}<br>
             <strong>Typ:</strong> {{ getTypName(kindergarten.typ) }}
         </p>
+    </div>
+</div>
+
+<div class="group-cards-container">
+    <div class="card">
+        <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/22209042-zwerge-logo-konzept-schwarz-und-weiss-farbe-hand-gezeichnet-illustration-vektor.jpg"
+            alt="Zwerge-Gruppe" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Zwergen-Gruppe</h5>
+            <p class="card-text">Altersgruppe 2-3</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/papers.co-ag30-mickey-mouse-logo-disney-36-3840x2400-4k-wallpaper.jpg"
+            alt="Mäuse-Gruppe" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Mäuse-Gruppe</h5>
+            <p class="card-text">Altersgruppe 3-4</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/640px-Superman_Logo.svg.png"
+            alt="Superhelden-Gruppe" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Superhelden-Gruppe</h5>
+            <p class="card-text">Altersgruppe 4+</p>
+        </div>
     </div>
 </div>

@@ -24,7 +24,8 @@ import { KindergartenListDetailsComponent } from './kindergarden-list-details/ki
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent,
   ],
   imports: [
+    MatSidenavModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,

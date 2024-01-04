@@ -7,8 +7,8 @@
 }
 
 .image-container img {
-    max-width: 300px;
-    max-height: 200px;
+    max-width: 500px;
+    max-height: 400px;
     width: auto;
     height: auto;
     display: block; /* Verhindert zusätzlichen Platz unter dem Bild */
@@ -19,3 +19,37 @@
     margin: auto; /* Fügt automatische Ränder hinzu, um die Karte zu zentrieren */
     max-width: 300px; /* Maximale Breite der Karte */
 }
+/* kindergarden-details.component.scss */
+
+/* ... bestehende Stile ... */
+
+.group-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Verkleinern des Abstands zwischen den Karten */
+    flex-wrap: wrap;
+}
+
+.card {
+    max-width: 18rem; /* Maximale Breite der Karten */
+    width: 100%; /* Sorgt dafür, dass die Karten responsiv sind */
+}
+
+.card-img-top {
+    width: 100%; /* Stellt sicher, dass das Bild die gesamte Kartenbreite einnimmt */
+    height: auto; /* Behält das Seitenverhältnis des Bildes bei */
+    border-radius: calc(0.25rem - 1px); /* Rundet die obere Ecke der Bilder ab */
+}
+
+  
+  @media (max-width: 600px) {
+    .image-container img {
+      max-width: 100%; /* Bilder nehmen die volle Breite auf kleinen Bildschirmen ein */
+      height: auto;
+    }
+  
+    .group-cards-container {
+      flex-direction: column; /* Stapelt Karten untereinander auf kleinen Bildschirmen */
+    }
+  }
+  
