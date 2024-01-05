@@ -17,7 +17,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastNotificationComponent } from './toast-notification/toast-notification.component';
-
+import { MatSelectModule } from '@angular/material/select';
+import { KindergartenDetailsComponent } from './kindergarden-details/kindergarden-details.component';
+import { MatCardModule } from '@angular/material/card';
+import { KindergartenListDetailsComponent } from './kindergarden-list-details/kindergarden-list-details.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { FooterComponent } from './footer/footer.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +36,16 @@ import { ToastNotificationComponent } from './toast-notification/toast-notificat
     ButtonComponent,
     PaginationPipe,
     ToastNotificationComponent,
+    DataComponent,
+    KindergartenDetailsComponent,
+    KindergartenListDetailsComponent,
+    LoadingSpinnerComponent,
+    FooterComponent,
   ],
   imports: [
+    MatSidenavModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -43,6 +59,8 @@ import { ToastNotificationComponent } from './toast-notification/toast-notificat
     MatButtonToggleModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

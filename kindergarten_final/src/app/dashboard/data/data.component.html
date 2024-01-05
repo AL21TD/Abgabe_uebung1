@@ -1,44 +1,91 @@
 <div class="table-container">
+    <!-- Dropdown-Menü für die Auswahl des Kindergartens -->
+    <mat-form-field appearance="fill" class="dropdown">
+        <mat-label>Kindergarten wählen</mat-label>
+        <mat-select (selectionChange)="filterByKindergarden($event.value)">
+            <mat-option *ngFor="let kg of storeService.kindergardens" [value]="kg.id">
+                {{ kg.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Sortierung</mat-label>
+        <mat-select (selectionChange)="applySort($event.value)">
+            <mat-option value="name_asc">Name aufsteigend</mat-option>
+            <mat-option value="name_desc">Name absteigend</mat-option>
+            <mat-option value="date_asc">Anmeldedatum aufsteigend</mat-option>
+            <mat-option value="date_desc">Anmeldedatum absteigend</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+
+    <!-- Tabelle für die Anzeige der Kinderdaten -->
     <mat-table [dataSource]="storeService.children" class="mat-elevation-z8">
-
-
+        <!-- Spalte für den Namen -->
         <ng-container matColumnDef="name">
             <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.name}} </mat-cell>
         </ng-container>
 
+        <!-- Spalte für den Kindergarten -->
         <ng-container matColumnDef="kindergarden">
             <mat-header-cell *matHeaderCellDef> Kindergarden </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.kindergarden.name}} </mat-cell>
         </ng-container>
 
+        <!-- Spalte für die Adresse -->
         <ng-container matColumnDef="address">
             <mat-header-cell *matHeaderCellDef> Adresse </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.kindergarden.address}} </mat-cell>
         </ng-container>
 
+        <!-- Spalte für das Alter -->
         <ng-container matColumnDef="age">
             <mat-header-cell *matHeaderCellDef> Alter </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{getAge(child.birthDate)}} </mat-cell>
         </ng-container>
 
+        <!-- Spalte für das Geburtsdatum -->
         <ng-container matColumnDef="birthdate">
             <mat-header-cell *matHeaderCellDef> Geburtsdatum </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.birthDate | date:'longDate'}} </mat-cell>
         </ng-container>
 
+        <!-- Spalte für das Anmeldedatum -->
+        <ng-container matColumnDef="registrationDate">
+            <mat-header-cell *matHeaderCellDef> Anmeldedatum </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.registrationDate | date:'longDate'}} </mat-cell>
+        </ng-container>
+        <!-- Spalte für die Paketauswahl -->
+        <ng-container matColumnDef="packageOption">
+            <mat-header-cell *matHeaderCellDef> Paket </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.packageOption}} </mat-cell>
+            <!-- Spalte für die Gruppenauswahl -->
+        </ng-container>
+        <ng-container matColumnDef="playgroup">
+            <mat-header-cell *matHeaderCellDef> Spielgruppe </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.playgroup}} </mat-cell>
+        </ng-container>
+
+
+        <!-- Spalte für die Aktionen -->
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> Aktionen </mat-header-cell>
             <mat-cell *matCellDef="let child">
-                <button mat-button (click)="cancelRegistration(child.id)">Kind abmelden</button>
+                <button mat-button color="warn" (click)="cancelRegistration(child.id)">Kind abmelden</button>
             </mat-cell>
         </ng-container>
 
+        <!-- Header- und Datenzeilen -->
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
 
+    <!-- Paginator für die Tabelle -->
     <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
         (page)="handlePageEvent($event)" aria-label="Select page">
     </mat-paginator>
 </div>
+
+<app-loading-spinner *ngIf="loading"></app-loading-spinner>

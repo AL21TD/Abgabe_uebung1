@@ -1,6 +1,25 @@
-<mat-toolbar color="primary" class="flex">
-    <span>{{ title }}</span>
-    <img width="150px" src={{imagePath}}>
-    <a mat-button [routerLink]="['/dashboard']">Dashboard</a>
-    <a mat-button [routerLink]="['/about']">About</a>
-</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [(opened)]="isMenuOpen">
+        <a mat-button [routerLink]="['/dashboard']" (click)="closeSidenav()">Dashboard</a>
+        <a mat-button [routerLink]="['/kindergarden-details']" (click)="closeSidenav()">Unsere Kindergärten</a>
+        <a mat-button [routerLink]="['/add-new-user']" (click)="closeSidenav()">Neues Kind hinzufügen</a>
+        <a mat-button [routerLink]="['/existing-user']" (click)="closeSidenav()">Bestehende Kind ansehen</a>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" class="flex">
+            <button mat-icon-button (click)="toggleMenu()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>{{ title }}</span>
+            <img width="150px" src={{imagePath}}>
+            <div class="toolbar-links">
+                <a mat-button [routerLink]="['/dashboard']">Dashboard</a>
+                <a mat-button [routerLink]="['/kindergarden-details']">Unsere Kindergärten</a>
+                <a mat-button [routerLink]="['/add-new-user']">Neues Kind hinzufügen</a>
+                <a mat-button [routerLink]="['/existing-user']">Bestehende Kind ansehen</a>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

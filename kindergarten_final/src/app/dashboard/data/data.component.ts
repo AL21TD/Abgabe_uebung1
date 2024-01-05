@@ -10,9 +10,10 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent implements OnInit {
-  length = 50; 
-  pageSize = 5; 
-  pageSizeOptions: number[] = [5, 10, 25];
+  loading: boolean = false;
+  length = 50;
+  pageSize = 2;
+  pageSizeOptions: number[] = [2];
 
   handlePageEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
@@ -24,6 +25,9 @@ export class DataComponent implements OnInit {
     'address',
     'age',
     'birthdate',
+    'registrationDate',
+    'packageOption',
+    'playgroup',
     'actions',
   ];
 
@@ -37,6 +41,7 @@ export class DataComponent implements OnInit {
 
   ngOnInit(): void {
     this.backendService.getChildren(this.currentPage);
+    this.backendService.getKindergardens();
   }
 
   getAge(birthDate: string) {
@@ -61,6 +66,31 @@ export class DataComponent implements OnInit {
   }
 
   public cancelRegistration(childId: string) {
-    this.backendService.deleteChildData(childId, this.currentPage);
+    this.loading = true;
+
+    this.backendService.deleteChildData(childId, this.currentPage).subscribe({
+      next: (_) => {
+        this.loading = false;
+      },
+      error: (error) => {
+        this.loading = false;
+      },
+    });
+  }
+
+  filterByKindergarden(kindergardenId: number) {
+    this.backendService.getChildrenByKindergarden(
+      kindergardenId,
+      this.currentPage
+    );
+  }
+
+  applySort(sortOption: string) {
+    const [field, order] = sortOption.split('_');
+    console.log('Sort Field:', field);
+    console.log('Sort Order:', order);
+    const sort = `${field},${order}`;
+    console.log('Sort Parameter:', sort);
+    this.backendService.getChildren(this.currentPage, sort);
   }
 }

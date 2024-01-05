@@ -1,4 +1,13 @@
-<app-data [currentPage]="currentPage" (selectPageEvent)="receiveMessage($event)"></app-data>
-<br>
-<app-button [showAddData]="showAddData" (toggleButtonClickEvent)="toggleButtonClicked($event)"></app-button>
-<app-add-data *ngIf="showAddData" [currentPage]="currentPage"></app-add-data>
+<div class="app-introduction">
+    <h1>Willkommen zu meiner Kindergarten-App!</h1>
+    <p>
+        Entdecken Sie die Welt der Kindergärten mit unserer umfassenden Plattform, die Ihnen einen detailreichen
+        Einblick in erstklassige Kindergärten in Ihrer Umgebung bietet. Einfach und sicher können Sie Ihr Kind für einen
+        passenden Kindergarten anmelden. Unsere App versorgt Sie mit allen wichtigen Informationen, um eine fundierte
+        Entscheidung für die frühkindliche Entwicklung Ihres Kindes zu treffen. Ob pädagogische Ausrichtung oder
+        Betreuungszeiten – finden Sie eine Umgebung, die Ihr Kind liebevoll fördert und auf seinem Bildungsweg
+        begleitet.
+    </p>
+    <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/smiling-teacher-and-multicultural-preschoolers-sit-2023-11-27-05-19-51-utc.jpg"
+        alt="Lächelnder Lehrer mit Vorschulkindern" width="650px" height="450px">
+</div>

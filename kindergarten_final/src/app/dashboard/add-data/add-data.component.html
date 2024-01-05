@@ -2,41 +2,92 @@
     <form [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
         <h2>Ihr Kind anmelden!</h2>
         <div>
-            <input class="input-field" placeholder="Name" type="text" formControlName="name">
-            <div *ngIf="addChildForm.get('name').errors?.required && addChildForm.get('name').touched" class="error">
+            <input class="input-field" placeholder="Name" type="text" formControlName="name" />
+            <div *ngIf="
+          addChildForm.get('name').errors?.required &&
+          addChildForm.get('name').touched
+        " class="error">
                 Bite geben Sie den Namen ein.
             </div>
-            <div *ngIf="addChildForm.get('name').errors?.maxLength && addChildForm.get('name').touched" class="error">
+            <div *ngIf="
+          addChildForm.get('name').errors?.maxLength &&
+          addChildForm.get('name').touched
+        " class="error">
                 Der Name darf maximal 25 Zeichen lang sein.
             </div>
-        </div><br />
+        </div>
+        <br />
         <div>
-            <input class="input-field" placeholder="Geburtsdatum" type="text" formControlName="birthDate">
+            <input class="input-field" placeholder="Geburtsdatum" type="text" formControlName="birthDate" />
 
-            <div *ngIf="addChildForm.get('birthDate').errors?.required && addChildForm.get('birthDate').touched"
-                class="error">
+            <div *ngIf="
+          addChildForm.get('birthDate').errors?.required &&
+          addChildForm.get('birthDate').touched
+        " class="error">
                 Bitte geben Sie das Geburtsdatum ein.
             </div>
-            <div *ngIf="addChildForm.get('birthDate').errors?.minlength && addChildForm.get('birthDate').touched"
-                class="error">
-                Das Datum muss im Format TT.MM.JJJJ sein.
+            <div *ngIf="
+          addChildForm.get('birthDate').errors?.dateInvalid &&
+          addChildForm.get('birthDate').touched
+        " class="error">
+                Das Datum muss im Format DD-MM-JJJJ sein.
             </div>
-        </div><br />
+        </div>
+        <br />
         <div>
             <select class="input-field" formControlName="kindergardenId">
                 <option value="" disabled>Bitte auswählen</option>
                 <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
-                    {{kindergarden.name}}, {{kindergarden.address}}
+                    {{ kindergarden.name }}, {{ kindergarden.address }}
                 </option>
             </select>
-            <div *ngIf="addChildForm.controls.kindergardenId.invalid && (addChildForm.controls.kindergardenId.dirty || addChildForm.controls.kindergardenId.touched)"
-                class="error">
+            <div *ngIf="
+          addChildForm.controls.kindergardenId.invalid &&
+          (addChildForm.controls.kindergardenId.dirty ||
+            addChildForm.controls.kindergardenId.touched)
+        " class="error">
                 Bitte wählen Sie einen Kindergarten aus.
             </div>
-        </div><br />
+        </div>
+        <div>
+            <br />
+            <select class="input-field" formControlName="packageOption">
+                <option value="" disabled>Paketauswahl</option>
+                <option value="Halbtags">Halbtags</option>
+                <option value="Ganztags">Ganztags</option>
+                <option value="Ganztags und Wochenende">Ganztags und Wochenende</option>
+            </select>
+            <div *ngIf="
+          addChildForm.controls.packageOption.invalid &&
+          (addChildForm.controls.packageOption.dirty ||
+            addChildForm.controls.packageOption.touched)
+        " class="error">
+                Bitte wählen Sie eine Option aus.
+            </div>
+        </div>
+        <br />
+        <div>
+            <select class="input-field" formControlName="playgroup">
+                <option value="" disabled>Bitte wählen Sie eine Gruppe aus</option>
+                <option value="Zwergengruppe">Zwergengruppe</option>
+                <option value="Superheldengruppe">Superheldengruppe</option>
+                <option value="Mäusegruppe">Mäusegruppe</option>
+            </select>
+            <div *ngIf="
+          addChildForm.controls.playgroup.invalid &&
+          (addChildForm.controls.playgroup.dirty ||
+            addChildForm.controls.playgroup.touched)
+        " class="error">
+                Bitte wählen Sie eine Spielgruppe aus.
+            </div>
+        </div>
+        <br />
+
         <button type="submit">Erfassen</button>
+        <div *ngIf="showError" class="error">
+            Bitte füllen Sie alle erforderlichen Felder aus.
+        </div>
     </form>
-
     <app-toast-notification #toast></app-toast-notification>
-
+    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
 </div>

@@ -1,0 +1,15 @@
+<div *ngIf="kindergardens && kindergardens.length > 0" class="d-flex flex-wrap">
+    <div class="card m-2" style="width: 18rem;" *ngFor="let kg of kindergardens">
+        <img src="https://kindergartenebung2.s3.eu-central-1.amazonaws.com/paper-figures-of-people-on-a-light-background-pla-2023-11-27-04-56-07-utc.jpg"
+            class="card-img-top" alt="{{ kg.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ kg.name }}</h5>
+            <p class="card-text">
+                <strong>Adresse:</strong> {{ kg.address }}<br>
+                <strong>Betreiber:</strong> {{ kg.betreiber }}<br>
+                <strong>Typ:</strong> {{ getTypName(kg.typ) }}
+            </p>
+            <a [routerLink]="['/kindergarden', kg.id]" class="btn btn-primary">Details ansehen</a>
+        </div>
+    </div>
+</div>

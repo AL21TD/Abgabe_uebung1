@@ -3,13 +3,12 @@ import { Kindergarden } from './interfaces/Kindergarden';
 import { Child, ChildResponse } from './interfaces/Child';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StoreService {
-
-  constructor() { }
+  constructor() {}
 
   public kindergardens: Kindergarden[] = [];
-  public children: ChildResponse[] = []
+  public children: ChildResponse[] = [];
   public childrenTotalCount: number = 0;
 }

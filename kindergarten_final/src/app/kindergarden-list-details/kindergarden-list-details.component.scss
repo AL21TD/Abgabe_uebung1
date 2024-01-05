@@ -1,0 +1,11 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.d-flex.flex-wrap {
+  margin-top: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.card {
+  margin-bottom: 16px;
+}

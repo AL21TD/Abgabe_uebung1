@@ -1,0 +1,16 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+app-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  text-align: center;
+}

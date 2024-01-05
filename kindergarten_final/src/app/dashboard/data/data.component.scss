@@ -1,4 +1,11 @@
 .full-width-table {
     width: 100%;
   }
-  
+
+  .dropdown {
+    margin-top: 20px;
+    margin-left: auto; /* Schiebt das Dropdown-Menü nach rechts */
+    align-self: flex-end; /* Richtet das Dropdown-Menü rechts aus, wenn der Container flex ist */
+    width: 800px; /* Setzt die Breite des Dropdown-Menüs */
+    max-width: 1000px; /* Maximale Breite, um zu große Dropdowns zu vermeiden */
+}
