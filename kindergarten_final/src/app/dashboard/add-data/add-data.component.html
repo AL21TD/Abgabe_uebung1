@@ -34,7 +34,34 @@
                 class="error">
                 Bitte wählen Sie einen Kindergarten aus.
             </div>
+        </div>
+        <div>
+            <br>
+            <select class="input-field" formControlName="packageOption">
+                <option value="" disabled>Paketauswahl</option>
+                <option value="Halbtags">Halbtags</option>
+                <option value="Ganztags">Ganztags</option>
+                <option value="Ganztags und Wochenende">Ganztags und Wochenende</option>
+            </select>
+            <div *ngIf="addChildForm.controls.packageOption.invalid && (addChildForm.controls.packageOption.dirty || addChildForm.controls.packageOption.touched)"
+                class="error">
+                Bitte wählen Sie eine Option aus.
+            </div>
         </div><br />
+        <div>
+            <select class="input-field" formControlName="playgroup">
+                <option value="" disabled>Bitte wählen Sie eine Gruppe aus</option>
+                <option value="Zwergengruppe">Zwergengruppe</option>
+                <option value="Superheldengruppe">Superheldengruppe</option>
+                <option value="Mäusegruppe">Mäusegruppe</option>
+            </select>
+            <div *ngIf="addChildForm.controls.playgroup.invalid && (addChildForm.controls.playgroup.dirty || addChildForm.controls.playgroup.touched)"
+                class="error">
+                Bitte wählen Sie eine Spielgruppe aus.
+            </div>
+        </div><br />
+
+
 
         <button type="submit">Erfassen</button>
         <div *ngIf="showError" class="error">

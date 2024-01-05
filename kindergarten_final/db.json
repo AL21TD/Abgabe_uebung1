@@ -1,17 +1,12 @@
 {
   "childs": [
     {
-      "name": "Andreas Test",
-      "kindergardenId": 1,
+      "name": "Andreas",
+      "kindergardenId": 2,
       "birthDate": "2022-01-01",
-      "registrationDate": "2024-01-05T10:46:48.218Z",
-      "id": 1
-    },
-    {
-      "name": "Max Mustermann",
-      "kindergardenId": 5,
-      "birthDate": "2021-01-01",
-      "registrationDate": "2024-01-05T10:47:06.594Z",
+      "packageOption": "Ganztags",
+      "playgroup": "Superheldengruppe",
+      "registrationDate": "2024-01-05T11:21:53.372Z",
       "id": 2
     }
   ],

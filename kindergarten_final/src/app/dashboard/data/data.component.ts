@@ -26,6 +26,8 @@ export class DataComponent implements OnInit {
     'age',
     'birthdate',
     'registrationDate',
+    'packageOption',
+    'playgroup',
     'actions',
   ];
 

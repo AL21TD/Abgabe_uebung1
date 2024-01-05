@@ -14,4 +14,6 @@ export interface ChildResponse {
   kindergarden: Kindergarden;
   kindergardenId: number;
   registrationDate: string;
+  packageOption: string;
+  playgroup: string;
 }

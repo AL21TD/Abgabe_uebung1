@@ -35,6 +35,8 @@ export class AddDataComponent implements OnInit {
       name: ['', [Validators.required, Validators.maxLength(25)]],
       kindergardenId: ['', Validators.required],
       birthDate: ['', [Validators.required, dateValidator]], // Validierung hinzugefügt
+      packageOption: ['', Validators.required],
+      playgroup: ['', Validators.required],
     });
   }
 

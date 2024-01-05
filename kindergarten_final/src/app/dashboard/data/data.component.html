@@ -57,6 +57,16 @@
             <mat-header-cell *matHeaderCellDef> Anmeldedatum </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.registrationDate | date:'longDate'}} </mat-cell>
         </ng-container>
+        <!-- Spalte für die Paketauswahl -->
+        <ng-container matColumnDef="packageOption">
+            <mat-header-cell *matHeaderCellDef> Paket </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.packageOption}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="playgroup">
+            <mat-header-cell *matHeaderCellDef> Spielgruppe </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.playgroup}} </mat-cell>
+        </ng-container>
+
 
         <!-- Spalte für die Aktionen -->
         <ng-container matColumnDef="actions">
