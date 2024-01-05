@@ -25,6 +25,7 @@ export class DataComponent implements OnInit {
     'address',
     'age',
     'birthdate',
+    'registrationDate',
     'actions',
   ];
 
@@ -63,16 +64,14 @@ export class DataComponent implements OnInit {
   }
 
   public cancelRegistration(childId: string) {
-    this.loading = true; // Lade-Indikator anzeigen
+    this.loading = true;
 
     this.backendService.deleteChildData(childId, this.currentPage).subscribe({
       next: (_) => {
-        // ... Aktionen nach erfolgreichem Löschen ...
-        this.loading = false; // Lade-Indikator verbergen
+        this.loading = false;
       },
       error: (error) => {
-        // ... Fehlerbehandlung ...
-        this.loading = false; // Lade-Indikator auch im Fehlerfall verbergen
+        this.loading = false;
       },
     });
   }
@@ -82,5 +81,14 @@ export class DataComponent implements OnInit {
       kindergardenId,
       this.currentPage
     );
+  }
+
+  applySort(sortOption: string) {
+    const [field, order] = sortOption.split('_');
+    console.log('Sort Field:', field);
+    console.log('Sort Order:', order);
+    const sort = `${field},${order}`;
+    console.log('Sort Parameter:', sort);
+    this.backendService.getChildren(this.currentPage, sort);
   }
 }

@@ -17,10 +17,11 @@
                 class="error">
                 Bitte geben Sie das Geburtsdatum ein.
             </div>
-            <div *ngIf="addChildForm.get('birthDate').errors?.minlength && addChildForm.get('birthDate').touched"
+            <div *ngIf="addChildForm.get('birthDate').errors?.dateInvalid && addChildForm.get('birthDate').touched"
                 class="error">
-                Das Datum muss im Format TT.MM.JJJJ sein.
+                Das Datum muss im Format DD-MM-JJJJ sein.
             </div>
+
         </div><br />
         <div>
             <select class="input-field" formControlName="kindergardenId">
@@ -34,7 +35,12 @@
                 Bitte wählen Sie einen Kindergarten aus.
             </div>
         </div><br />
+
         <button type="submit">Erfassen</button>
+        <div *ngIf="showError" class="error">
+            Bitte füllen Sie alle erforderlichen Felder aus.
+        </div>
+
     </form>
 
     <app-toast-notification #toast></app-toast-notification>

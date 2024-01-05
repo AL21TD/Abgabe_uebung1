@@ -28,12 +28,13 @@ export class BackendService {
     return this.http.get<Kindergarden[]>('http://localhost:5000/kindergardens');
   }
 
-  public getChildren(page: number) {
+  public getChildren(page: number, sort: string = '') {
+    let url = `http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}`;
+    if (sort) {
+      url += `&_sort=${sort}`;
+    }
     this.http
-      .get<ChildResponse[]>(
-        `http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}`,
-        { observe: 'response' }
-      )
+      .get<ChildResponse[]>(url, { observe: 'response' })
       .subscribe((data) => {
         this.storeService.children = data.body!;
         this.storeService.childrenTotalCount = Number(
@@ -45,7 +46,7 @@ export class BackendService {
   public addChildData(child: Child, page: number, onSuccess: () => void) {
     this.http.post('http://localhost:5000/childs', child).subscribe((_) => {
       this.getChildren(page);
-      onSuccess(); // Callback aufrufen
+      onSuccess();
     });
   }
 

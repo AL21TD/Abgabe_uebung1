@@ -8,6 +8,15 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
+    <mat-form-field>
+        <mat-label>Sortierung</mat-label>
+        <mat-select (selectionChange)="applySort($event.value)">
+            <mat-option value="name_asc">Name aufsteigend</mat-option>
+            <mat-option value="name_desc">Name absteigend</mat-option>
+            <mat-option value="date_asc">Anmeldedatum aufsteigend</mat-option>
+            <mat-option value="date_desc">Anmeldedatum absteigend</mat-option>
+        </mat-select>
+    </mat-form-field>
 
 
 
@@ -41,6 +50,12 @@
         <ng-container matColumnDef="birthdate">
             <mat-header-cell *matHeaderCellDef> Geburtsdatum </mat-header-cell>
             <mat-cell *matCellDef="let child"> {{child.birthDate | date:'longDate'}} </mat-cell>
+        </ng-container>
+
+        <!-- Spalte für das Anmeldedatum -->
+        <ng-container matColumnDef="registrationDate">
+            <mat-header-cell *matHeaderCellDef> Anmeldedatum </mat-header-cell>
+            <mat-cell *matCellDef="let child"> {{child.registrationDate | date:'longDate'}} </mat-cell>
         </ng-container>
 
         <!-- Spalte für die Aktionen -->

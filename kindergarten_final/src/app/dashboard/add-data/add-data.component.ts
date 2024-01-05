@@ -1,5 +1,10 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { BackendService } from 'src/app/shared/backend.service';
 import { StoreService } from 'src/app/shared/store.service';
 import { ToastNotificationComponent } from 'src/app/toast-notification/toast-notification.component';
@@ -10,6 +15,7 @@ import { ToastNotificationComponent } from 'src/app/toast-notification/toast-not
   styleUrls: ['./add-data.component.scss'],
 })
 export class AddDataComponent implements OnInit {
+  showError: boolean = false;
   loading: boolean = false;
   @ViewChild(ToastNotificationComponent)
   toastNotification: ToastNotificationComponent =
@@ -28,20 +34,18 @@ export class AddDataComponent implements OnInit {
     this.addChildForm = this.formbuilder.group({
       name: ['', [Validators.required, Validators.maxLength(25)]],
       kindergardenId: ['', Validators.required],
-      birthDate: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(10),
-        ],
-      ],
+      birthDate: ['', [Validators.required, dateValidator]], // Validierung hinzugefügt
     });
   }
 
   onSubmit() {
     if (this.addChildForm.valid) {
       this.loading = true; // Spinner aktivieren
+
+      // Setzen des aktuellen Datums und der Uhrzeit als Anmeldedatum
+      const currentDate = new Date();
+      this.addChildForm.value.registrationDate = currentDate.toISOString();
+
       this.backendService.addChildData(
         this.addChildForm.value,
         this.currentPage,
@@ -50,6 +54,15 @@ export class AddDataComponent implements OnInit {
           this.loading = false; // Spinner deaktivieren, wenn der Vorgang abgeschlossen ist
         }
       );
+    } else {
+      this.showError = true; // Set showError to true if the form is invalid
     }
   }
+}
+function dateValidator(control: FormControl): { [key: string]: any } | null {
+  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+  if (control.value && !dateRegex.test(control.value)) {
+    return { dateInvalid: true };
+  }
+  return null;
 }
