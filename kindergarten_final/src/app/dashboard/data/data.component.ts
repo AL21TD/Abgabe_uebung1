@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BackendService } from 'src/app/shared/backend.service';
-import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
-import { StoreService } from 'src/app/shared/store.service';
+import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { BackendService } from 'src/app/shared/backend.service';
+import { StoreService } from 'src/app/shared/store.service';
 
 @Component({
   selector: 'app-data',
@@ -11,14 +10,10 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class DataComponent implements OnInit {
   loading: boolean = false;
-  length = 50;
-  pageSize = 2;
-  pageSizeOptions: number[] = [2];
-
-  handlePageEvent(event: PageEvent) {
-    this.pageSize = event.pageSize;
-    this.selectPage(event.pageIndex);
-  }
+  length: number = 50; // Dies sollte dynamisch aus dem Backend abgerufen werden
+  pageSize: number = 5;
+  pageSizeOptions: number[] = [5, 10, 25];
+  currentPage: number = 0;
   displayedColumns: string[] = [
     'name',
     'kindergarden',
@@ -35,13 +30,16 @@ export class DataComponent implements OnInit {
     public storeService: StoreService,
     private backendService: BackendService
   ) {}
-  @Input() currentPage!: number;
-  @Output() selectPageEvent = new EventEmitter<number>();
-  public page: number = 0;
 
   ngOnInit(): void {
-    this.backendService.getChildren(this.currentPage);
+    this.backendService.getChildren(this.currentPage, this.pageSize);
     this.backendService.getKindergardens();
+  }
+
+  handlePageEvent(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.currentPage = event.pageIndex;
+    this.backendService.getChildren(this.currentPage, this.pageSize);
   }
 
   getAge(birthDate: string) {
@@ -55,42 +53,32 @@ export class DataComponent implements OnInit {
     return age;
   }
 
-  selectPage(i: any) {
-    let currentPage = i;
-    this.selectPageEvent.emit(currentPage);
-    this.backendService.getChildren(currentPage);
-  }
-
-  public returnAllPages() {
-    return Math.ceil(this.storeService.childrenTotalCount / CHILDREN_PER_PAGE);
-  }
-
-  public cancelRegistration(childId: string) {
+  cancelRegistration(childId: string) {
     this.loading = true;
-
-    this.backendService.deleteChildData(childId, this.currentPage).subscribe({
-      next: (_) => {
-        this.loading = false;
-      },
-      error: (error) => {
-        this.loading = false;
-      },
-    });
+    this.backendService
+      .deleteChildData(childId, this.currentPage, this.pageSize)
+      .subscribe({
+        next: (_) => {
+          this.loading = false;
+        },
+        error: (error) => {
+          console.error('Fehler beim Abmelden des Kindes', error);
+          this.loading = false;
+        },
+      });
   }
 
   filterByKindergarden(kindergardenId: number) {
     this.backendService.getChildrenByKindergarden(
       kindergardenId,
-      this.currentPage
+      this.currentPage,
+      this.pageSize
     );
   }
 
   applySort(sortOption: string) {
     const [field, order] = sortOption.split('_');
-    console.log('Sort Field:', field);
-    console.log('Sort Order:', order);
     const sort = `${field},${order}`;
-    console.log('Sort Parameter:', sort);
-    this.backendService.getChildren(this.currentPage, sort);
+    this.backendService.getChildren(this.currentPage, this.pageSize, sort);
   }
 }

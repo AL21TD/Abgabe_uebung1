@@ -9,6 +9,15 @@ import { BackendService } from 'src/app/shared/backend.service';
 import { StoreService } from 'src/app/shared/store.service';
 import { ToastNotificationComponent } from 'src/app/toast-notification/toast-notification.component';
 
+// Diese Funktion dient zur Validierung des Datumsformats im Formular
+function dateValidator(control: FormControl): { [key: string]: any } | null {
+  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+  if (control.value && !dateRegex.test(control.value)) {
+    return { dateInvalid: true };
+  }
+  return null;
+}
+
 @Component({
   selector: 'app-add-data',
   templateUrl: './add-data.component.html',
@@ -43,32 +52,28 @@ export class AddDataComponent implements OnInit {
 
   onSubmit() {
     if (this.addChildForm.valid) {
-      this.loading = true; // Aktiviert den Lade-Spinner
+      this.loading = true;
 
-      // Setzt das aktuelle Datum und die Uhrzeit als Anmeldedatum
       const currentDate = new Date();
       this.addChildForm.value.registrationDate = currentDate.toISOString();
 
-      // Ruft die Methode addChildData im BackendService auf und verarbeitet die Antwort
-      this.backendService.addChildData(
-        this.addChildForm.value,
-        this.currentPage,
-        () => {
-          this.toastNotification.showToast();
-          this.loading = false; // Deaktiviert den Lade-Spinner, wenn der Vorgang abgeschlossen ist
-        }
-      );
+      // Angenommen, Ihre Seitengröße ist 5
+      const pageSize = 5;
+
+      this.backendService
+        .addChildData(this.addChildForm.value, this.currentPage, pageSize)
+        .subscribe({
+          next: () => {
+            this.toastNotification.showToast();
+            this.loading = false;
+          },
+          error: (error) => {
+            console.error('Fehler beim Hinzufügen des Kindes', error);
+            this.loading = false;
+          },
+        });
     } else {
-      this.showError = true; // Setzt showError auf true, wenn das Formular ungültig ist
+      this.showError = true;
     }
   }
-}
-
-// Diese Funktion dient zur Validierung des Datumsformats im Formular
-function dateValidator(control: FormControl): { [key: string]: any } | null {
-  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-  if (control.value && !dateRegex.test(control.value)) {
-    return { dateInvalid: true };
-  }
-  return null;
 }

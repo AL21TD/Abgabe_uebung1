@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Kindergarden } from './interfaces/Kindergarden';
-import { StoreService } from './store.service';
-import { Child, ChildResponse } from './interfaces/Child';
-import { CHILDREN_PER_PAGE } from './constants';
 import { Observable, tap } from 'rxjs';
+import { Kindergarden } from './interfaces/Kindergarden';
+import { Child, ChildResponse } from './interfaces/Child';
+import { StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,24 +11,20 @@ import { Observable, tap } from 'rxjs';
 export class BackendService {
   constructor(private http: HttpClient, private storeService: StoreService) {}
 
-  public getKindergardens() {
+  getKindergardens() {
     this.http
       .get<Kindergarden[]>('http://localhost:5000/kindergardens')
       .subscribe((data) => {
         this.storeService.kindergardens = data;
       });
   }
-  public getKindergartenById(id: string): Observable<Kindergarden> {
-    return this.http.get<Kindergarden>(
-      `http://localhost:5000/kindergardens/${id}`
-    );
-  }
-  public getAllKindergardens(): Observable<Kindergarden[]> {
+
+  getAllKindergardens(): Observable<Kindergarden[]> {
     return this.http.get<Kindergarden[]>('http://localhost:5000/kindergardens');
   }
 
-  public getChildren(page: number, sort: string = '') {
-    let url = `http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${CHILDREN_PER_PAGE}`;
+  getChildren(page: number, pageSize: number, sort: string = '') {
+    let url = `http://localhost:5000/childs?_expand=kindergarden&_page=${page}&_limit=${pageSize}`;
     if (sort) {
       url += `&_sort=${sort}`;
     }
@@ -43,18 +38,15 @@ export class BackendService {
       });
   }
 
-  public addChildData(child: Child, page: number, onSuccess: () => void) {
-    this.http.post('http://localhost:5000/childs', child).subscribe((_) => {
-      this.getChildren(page);
-      onSuccess();
-    });
-  }
-
-  public deleteChildData(childId: string, page: number): Observable<any> {
+  deleteChildData(
+    childId: string,
+    page: number,
+    pageSize: number
+  ): Observable<any> {
     return this.http.delete(`http://localhost:5000/childs/${childId}`).pipe(
       tap({
         next: (_) => {
-          this.getChildren(page);
+          this.getChildren(page, pageSize);
         },
         error: (error) => {
           console.error('Fehler beim Löschen des Kindes', error);
@@ -62,23 +54,41 @@ export class BackendService {
       })
     );
   }
+  getKindergartenById(id: string): Observable<Kindergarden> {
+    return this.http.get<Kindergarden>(
+      `http://localhost:5000/kindergardens/${id}`
+    );
+  }
 
-  public getChildrenByKindergarden(kindergardenId: number, page: number) {
-    this.http
-      .get<ChildResponse[]>(
-        `http://localhost:5000/childs?_expand=kindergarden&kindergardenId=${kindergardenId}&_page=${page}&_limit=${CHILDREN_PER_PAGE}`,
-        { observe: 'response' }
-      )
-      .subscribe(
-        (response) => {
-          this.storeService.children = response.body!;
-          this.storeService.childrenTotalCount = Number(
-            response.headers.get('X-Total-Count')
-          );
+  addChildData(child: Child, page: number, pageSize: number): Observable<any> {
+    return this.http.post('http://localhost:5000/childs', child).pipe(
+      tap({
+        next: (_) => {
+          this.getChildren(page, pageSize);
         },
-        (error) => {
-          console.error('API error: ', error);
-        }
-      );
+        error: (error) => {
+          console.error('Fehler beim Hinzufügen des Kindes', error);
+        },
+      })
+    );
+  }
+
+  getChildrenByKindergarden(
+    kindergardenId: number,
+    page: number,
+    pageSize: number
+  ) {
+    let url = `http://localhost:5000/childs?_expand=kindergarden&kindergardenId=${kindergardenId}&_page=${page}&_limit=${pageSize}`;
+    this.http.get<ChildResponse[]>(url, { observe: 'response' }).subscribe(
+      (response) => {
+        this.storeService.children = response.body!;
+        this.storeService.childrenTotalCount = Number(
+          response.headers.get('X-Total-Count')
+        );
+      },
+      (error) => {
+        console.error('API error: ', error);
+      }
+    );
   }
 }
