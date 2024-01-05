@@ -1,11 +1,10 @@
-/* add-data.component.scss */
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  max-width: 500px; /* Maximale Breite des Formulars */
-  margin: auto; /* Zentriert das Formular */
+  max-width: 500px;
+  margin: auto;
 }
 
 .form-container form {
@@ -28,7 +27,7 @@
 
 button {
   width: 100%;
-  background-color: blue;
+  background-color: darkblue;
   color: white;
   padding: 14px 20px;
   margin-top: 10px;

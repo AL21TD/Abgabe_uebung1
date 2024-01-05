@@ -18,6 +18,8 @@ export class KindergartenListDetailsComponent implements OnInit {
       (error: any) => console.error(error)
     );
   }
+
+  //Eine Funktion um den Typen in Human-redable umzuwandeln.
   getTypName(typ: Typ): string {
     switch (typ) {
       case Typ.privat:
