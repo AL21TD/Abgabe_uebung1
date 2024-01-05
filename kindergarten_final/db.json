@@ -1,178 +1,18 @@
 {
   "childs": [
     {
-      "id": "_iL775j",
-      "name": "Nicole Fitsch 1",
-      "birthDate": "2021-07-04",
-      "kindergardenId": 1
-    },
-    {
-      "id": "_iL77oo",
-      "name": "Viktor Sachs 3",
-      "birthDate": "2022-06-04",
-      "kindergardenId": 4
-    },
-    {
-      "id": "_iL790m",
-      "name": "Emily Nilson 4",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "id": "_iL790m",
-      "name": "Tom Reiner 5",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "id": "_iL790m",
-      "name": "Michael Mittner 6",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "id": "_iL790m",
-      "name": "Nikolaus Polarius 7",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "name": "Paulus Fensterl 8",
-      "kindergardenId": 2,
-      "birthDate": "2023-09-28",
-      "id": "9py_fwi"
-    },
-    {
-      "name": "Heidi aus den Bergen 9",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-05",
-      "id": "hOHEFCv"
-    },
-    {
-      "name": "Traude Widmann 10",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-05",
-      "id": "cu0_2Ad"
-    },
-    {
-      "name": "Heiner Kühlschrank 11",
-      "kindergardenId": 2,
-      "birthDate": "2023-10-26",
-      "id": "ip57WMS"
-    },
-    {
-      "name": "Nicole Witz 12",
-      "kindergardenId": 3,
-      "birthDate": "2023-10-13",
-      "id": "JmbNaBH"
-    },
-    {
-      "name": "Bastian Witsch 13",
-      "kindergardenId": 3,
-      "birthDate": "2023-10-13",
-      "id": "hlQAqAD"
-    },
-    {
-      "name": "aaaaaaa",
-      "kindergardenId": 3,
-      "birthDate": "1996-02-21",
-      "id": "vpikaAm"
-    },
-    {
-      "name": "aaaaaaa",
-      "kindergardenId": 3,
-      "birthDate": "1996-02-21",
-      "id": "6r-gJW4"
-    },
-    {
-      "name": "aaaaaaa",
-      "kindergardenId": 3,
-      "birthDate": "1996-02-21",
-      "id": "zQkIH9L"
-    },
-    {
-      "name": "aaaaa",
-      "kindergardenId": 3,
-      "birthDate": "22.18.1990",
-      "id": "lfZ-oWw"
-    },
-    {
-      "name": "Andreas Leicht",
-      "kindergardenId": 2,
-      "birthDate": "21.02.1996",
-      "id": "gkHHvhx"
-    },
-    {
-      "name": "asasas asaasas",
-      "kindergardenId": 2,
-      "birthDate": "21.02.1996",
-      "id": "ZO5Y7PZ"
-    },
-    {
-      "name": "asasas asaasas",
-      "kindergardenId": 2,
-      "birthDate": "21.02.1996",
-      "id": "6DR7ar8"
-    },
-    {
-      "name": "asasas asaasas",
-      "kindergardenId": 2,
-      "birthDate": "21.02.1996",
-      "id": "iVnUcIE"
-    },
-    {
-      "name": "asda asd a ",
-      "kindergardenId": 4,
-      "birthDate": "21.02.1996",
-      "id": "EX3EIdf"
-    },
-    {
-      "name": "assasas assasas",
-      "kindergardenId": 3,
-      "birthDate": "21.02.1996",
-      "id": "trrVdos"
-    },
-    {
-      "name": "asasassa",
-      "kindergardenId": 4,
-      "birthDate": "21.02.1996",
-      "id": "1R8gUih"
-    },
-    {
-      "name": "assaass assasaa",
+      "name": "Andreas Test",
       "kindergardenId": 1,
-      "birthDate": "21.02.1996",
-      "id": "_RHNkJJ"
+      "birthDate": "2022-01-01",
+      "registrationDate": "2024-01-05T10:46:48.218Z",
+      "id": 1
     },
     {
-      "name": "ansn",
-      "kindergardenId": 2,
-      "birthDate": "21.02.1996",
-      "id": "bS7Feyj"
-    },
-    {
-      "name": "ansn",
-      "kindergardenId": 2,
-      "birthDate": "21.02.1996",
-      "id": "Tqv3XtN"
-    },
-    {
-      "name": "ansn",
-      "kindergardenId": 2,
-      "birthDate": "21.02.1996",
-      "id": "9DF5zqf"
-    },
-    {
-      "name": "Andreas Leicht",
-      "kindergardenId": 4,
-      "birthDate": "21.02.1996",
-      "id": "DeBos-A"
-    },
-    {
-      "name": "Andreas Leicht",
-      "kindergardenId": 4,
-      "birthDate": "21.02.1996",
-      "id": "CqGhtJY"
+      "name": "Max Mustermann",
+      "kindergardenId": 5,
+      "birthDate": "2021-01-01",
+      "registrationDate": "2024-01-05T10:47:06.594Z",
+      "id": 2
     }
   ],
   "kindergardens": [
